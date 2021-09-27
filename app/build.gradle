@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 31
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.neppplus.yut_fortune"
         minSdk 16
