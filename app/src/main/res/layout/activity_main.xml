@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:text="해석은 아래박스를 눌러주세요"/>
+                android:text="※ 해석은 아래 박스를 눌러주세요 ※"/>
 
 
         </LinearLayout>
@@ -89,13 +89,15 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@drawable/border_box"
+            android:padding="10dp"
             android:gravity="center">
 
             <TextView
                 android:id="@+id/resultTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:layout_gravity="center|center_horizontal"
+                android:textSize="17sp"
                 android:textColor="@color/background"
                 android:text=" " />
 
