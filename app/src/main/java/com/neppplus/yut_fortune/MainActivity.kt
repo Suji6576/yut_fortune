@@ -76,10 +76,15 @@ class MainActivity : BaseActivity() {
 
     }
 
-    fun randomValues(): Int {
+    fun randomValues(){
 
         val randomNumber = (1..4).random()
-        return randomNumber
+        val yutTxt = when(randomNumber){
+            1 -> "도"
+            2 -> "개"
+            3 -> "걸"
+            else -> "모"
+        }
 
     }
 

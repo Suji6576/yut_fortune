@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="숫자뽑기"/>
+            android:text="윷점 뽑기"/>
 
 
         <LinearLayout
