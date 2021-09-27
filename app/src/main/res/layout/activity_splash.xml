@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:gravity="center"
     tools:context=".SplashActivity">
 
@@ -13,6 +14,12 @@
         app:lottie_rawRes="@raw/loading_loop"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:text="당신의 고민은 무엇인가요?"/>
 
 
 </LinearLayout>
