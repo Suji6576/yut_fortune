@@ -35,36 +35,52 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal"
+            android:layout_height="120dp"
+            android:orientation="vertical"
             android:layout_marginTop="20dp"
             android:gravity="center">
 
-            <TextView
-                android:id="@+id/firstTxt"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:gravity="center"
-                android:textSize="30sp"
-                android:text="0"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/firstTxt"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:text="0"/>
+
+                <TextView
+                    android:id="@+id/secondTxt"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:layout_marginLeft="10dp"
+                    android:text="0"/>
+
+                <TextView
+                    android:id="@+id/thirdTxt"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:layout_marginLeft="10dp"
+                    android:text="0"/>
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/secondTxt"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:textSize="30sp"
-                android:layout_marginLeft="10dp"
-                android:text="0"/>
+                android:text="해석은 아래박스를 눌러주세요"/>
 
-            <TextView
-                android:id="@+id/thirdTxt"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:textSize="30sp"
-                android:layout_marginLeft="10dp"
-                android:text="0"/>
 
         </LinearLayout>
 
