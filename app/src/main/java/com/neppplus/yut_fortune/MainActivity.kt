@@ -1,15 +1,24 @@
 package com.neppplus.yut_fortune
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.yut_fortune.databinding.ActivityMainBinding
+import com.neppplus.yut_fortune.datas.FortuneData
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileWriter
+import java.util.*
 
 class MainActivity : BaseActivity() {
 
     lateinit var binding: ActivityMainBinding
+
+    val mSelectesDate = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +31,9 @@ class MainActivity : BaseActivity() {
 
         binding.randomBtn.setOnClickListener {
 
-            binding.firstTxt.text = randomValues().toString()
-            binding.secondTxt.text = randomValues().toString()
-            binding.thirdTxt.text = randomValues().toString()
+            binding.firstTxt.text = randomValues()
+            binding.secondTxt.text = randomValues()
+            binding.thirdTxt.text = randomValues()
 
             binding.resultTxt.text = " "
 
@@ -209,6 +218,27 @@ class MainActivity : BaseActivity() {
             }
 
             return@setOnClickListener
+            
+            binding.saveBtn.setOnClickListener {
+                
+                if (binding.worryEdt.text == null) {
+                    Toast.makeText(mContext, "간단한 질문을 입력해주세요", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                else{
+
+                    val yutResult = "${inputFirst} ${inputSecond} ${inputThird}"
+
+                    val inputFortuneData = FortuneData(yutResult, binding.resultTxt.toString())
+                    val saveStr =inputFortuneData.getFileFormatData()
+
+                    saveResultToFile(saveStr)
+                    Log.d("파일에 저장할 문장", saveStr)
+                }
+
+            }
+            
         }
 
         menuBtn.setOnClickListener {
@@ -231,6 +261,22 @@ class MainActivity : BaseActivity() {
             else -> "모"
         }
         return yutTxt
+    }
+
+    fun saveResultToFile(content : String){
+        val myFile = File(filesDir,"saveFortune.txt")
+
+        val fw = FileWriter(myFile, true)
+        val bw = BufferedWriter(fw)
+
+        bw.append(content)
+        bw.newLine()
+
+        bw.close()
+        fw.close()
+
+        Log.d("파일추가", content)
+
     }
 
     override fun setValues() {
