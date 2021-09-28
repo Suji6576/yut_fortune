@@ -19,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/background"
+        android:textSize="20sp"
         android:text="당신의 고민은 무엇인가요?"/>
 
 

@@ -225,5 +225,7 @@ class MainActivity : BaseActivity() {
 
     override fun setValues() {
 
+        titleTxt.text = "운세보기"
+
     }
 }
