@@ -44,7 +44,7 @@
 
             <Button
                 android:id="@+id/randomBtn"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -121,6 +121,15 @@
                     android:text=" " />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/background"
+                android:text="운세 저장"/>
 
         </LinearLayout>
 
