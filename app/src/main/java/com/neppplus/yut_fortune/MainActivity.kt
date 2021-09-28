@@ -216,26 +216,6 @@ class MainActivity : BaseActivity() {
 
             return@setOnClickListener
             
-            binding.saveBtn.setOnClickListener {
-                
-                if (binding.worryEdt.text == null) {
-                    Toast.makeText(mContext, "간단한 질문을 입력해주세요", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-
-                else{
-
-                    val yutResult = "${inputFirst} ${inputSecond} ${inputThird}"
-
-                    val inputFortuneData = FortuneData(yutResult, binding.resultTxt.toString())
-                    val saveStr =inputFortuneData.getFileFormatData()
-
-                    saveResultToFile(saveStr)
-                    Log.d("파일에 저장할 문장", saveStr)
-                }
-
-            }
-            
         }
 
         menuBtn.setOnClickListener {
@@ -265,21 +245,6 @@ class MainActivity : BaseActivity() {
         return yutTxt
     }
 
-    fun saveResultToFile(content : String){
-        val myFile = File(filesDir,"saveFortune.txt")
-
-        val fw = FileWriter(myFile, true)
-        val bw = BufferedWriter(fw)
-
-        bw.append(content)
-        bw.newLine()
-
-        bw.close()
-        fw.close()
-
-        Log.d("파일추가", content)
-
-    }
 
     override fun setValues() {
 
