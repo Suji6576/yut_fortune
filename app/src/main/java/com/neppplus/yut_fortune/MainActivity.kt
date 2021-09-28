@@ -1,9 +1,8 @@
 package com.neppplus.yut_fortune
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -17,8 +16,6 @@ import java.util.*
 class MainActivity : BaseActivity() {
 
     lateinit var binding: ActivityMainBinding
-
-    val mSelectesDate = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -243,6 +240,11 @@ class MainActivity : BaseActivity() {
 
         menuBtn.setOnClickListener {
             binding.viewSaveFortuneBtn.visibility = View.VISIBLE
+
+            binding.viewSaveFortuneBtn.setOnClickListener {
+                val myIntent = Intent(mContext, ViewFortuneListActivity::class.java)
+                startActivity(myIntent)
+            }
         }
 
         binding.mainLayout.setOnClickListener {
