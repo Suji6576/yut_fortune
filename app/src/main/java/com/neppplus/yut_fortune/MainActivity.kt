@@ -1,6 +1,9 @@
 package com.neppplus.yut_fortune
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.neppplus.yut_fortune.databinding.ActivityMainBinding
 
@@ -208,6 +211,9 @@ class MainActivity : BaseActivity() {
             return@setOnClickListener
         }
 
+        menuBtn.setOnClickListener {
+            binding.viewSaveFortuneBtn.visibility = View.VISIBLE
+        }
 
     }
 

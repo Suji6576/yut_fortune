@@ -2,6 +2,7 @@ package com.neppplus.yut_fortune
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Menu
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
