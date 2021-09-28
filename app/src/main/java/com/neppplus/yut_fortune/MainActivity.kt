@@ -23,6 +23,8 @@ class MainActivity : BaseActivity() {
             binding.secondTxt.text = randomValues().toString()
             binding.thirdTxt.text = randomValues().toString()
 
+            binding.resultTxt.text = " "
+
             val inputFirst = binding.firstTxt.text
             val inputSecond = binding.secondTxt.text
             val inputThird = binding.thirdTxt.text
