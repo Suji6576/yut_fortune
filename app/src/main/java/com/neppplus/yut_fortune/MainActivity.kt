@@ -215,6 +215,10 @@ class MainActivity : BaseActivity() {
             binding.viewSaveFortuneBtn.visibility = View.VISIBLE
         }
 
+        binding.mainLayout.setOnClickListener {
+            binding.viewSaveFortuneBtn.visibility = View.GONE
+        }
+
     }
 
     fun randomValues() : String {
