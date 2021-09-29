@@ -53,8 +53,21 @@ class MainActivity : BaseActivity() {
                 alert.setTitle("저장할 내용입력")
                 alert.setView(customView)
                 alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialogInterface, i ->
-                    val worryEdt =customView.findViewById<EditText>(R.id.worryEdt)
-                    Toast.makeText(mContext, "${worryEdt.text}", Toast.LENGTH_SHORT).show()
+                    val worryEdt = customView.findViewById<EditText>(R.id.worryEdt)
+
+//                    확인 눌렀을때, 화면에 나와있는 데이터들을(운세카테고리, worryEdt 입력한내용, 운세 해석) String가공해서 save_fortune.txt에 저장하고 저장했다는 토스트 띄워주기.
+
+                    val inputFortuneData = FortuneData(
+                        binding.categoryTxt.text.toString(),
+                        worryEdt.text.toString(),
+                        binding.resultTxt.text.toString())
+                    val saveStr =inputFortuneData.getFileFormatData()
+
+                    saveResultToFile(saveStr)
+                    Log.d("파일에 저장할 문장", saveStr)
+
+                    Toast.makeText(mContext, "저장되었습니다.", Toast.LENGTH_SHORT).show()
+
                 })
                 alert.setNegativeButton("취소", null)
                 alert.show()
@@ -271,13 +284,31 @@ class MainActivity : BaseActivity() {
 
             }
 
+            val yutResult = "${inputFirst} ${inputSecond} ${inputThird}"
+
         }
 
     }
 
 //    저장버튼 눌렀을 때 결과를 txt로 저장 -> 텍스트를 어떻게 가공해서 저장할것인가?
     fun saveResultToFile(content : String){
-        val myFile = File(mContext.filesDir,"saveFortune.txt")
+
+//    val myFile = File(filesDir,"saveFortune.txt")
+        val fileName = "save_fortune.txt"
+
+        var myFile = File(filesDir, fileName)
+
+        // create a new file
+        val isNewFileCreated :Boolean = myFile.createNewFile()
+
+        if(isNewFileCreated){
+            Log.d("새파일 생성","save_fortune.txt이 생성되었습니다.")
+//            Toast.makeText(mContext, "저장되었습니다.", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            Log.d("기존파일에 저장","save_fortune.txt에 저장되었습니다.")
+//            Toast.makeText(mContext, "저장되었습니다.", Toast.LENGTH_SHORT).show()
+        }
 
         val fw = FileWriter(myFile, true)
         val bw = BufferedWriter(fw)
@@ -288,7 +319,7 @@ class MainActivity : BaseActivity() {
         bw.close()
         fw.close()
 
-        Log.d("파일추가", content)
+        Log.d("데이터추가", content)
 
     }
 

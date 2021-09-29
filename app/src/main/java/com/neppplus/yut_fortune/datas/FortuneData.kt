@@ -4,7 +4,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class FortuneData (
-    var saveYut : String,
+    var saveCategory : String,
+    var saveWorry: String,
     var saveFortune : String) {
 
 //    텍스트로 저장할 내용 yy-M-dd [카테고리] 질문 : 윷점결과
@@ -18,6 +19,6 @@ class FortuneData (
         val dateFormat = SimpleDateFormat("yy-M-dd", Locale("ko", "KR"))
         val saveDate = dateFormat.format(date)
 
-        return "${saveDate} ${saveYut} : ${saveFortune}"
+        return "${saveDate}|[${saveCategory} ]|${saveWorry}|${saveFortune}"
     }
 }

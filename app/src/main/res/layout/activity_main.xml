@@ -72,8 +72,7 @@
                             android:fontFamily="@font/cafe24_onepretty_night"
                             android:textStyle="bold"
                             android:textSize="18sp"
-                            android:paddingLeft="10dp"
-                            android:text=""/>
+                            android:paddingLeft="10dp"/>
 
                     </LinearLayout>
 
