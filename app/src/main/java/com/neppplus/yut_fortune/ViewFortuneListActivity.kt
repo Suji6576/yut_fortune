@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.yut_fortune.adapters.FortuneAdapter
 import com.neppplus.yut_fortune.databinding.ActivityViewFortuneListBinding
 import com.neppplus.yut_fortune.datas.FortuneData
+import java.io.BufferedReader
+import java.io.File
 
 class ViewFortuneListActivity : BaseActivity() {
 
@@ -39,5 +41,10 @@ class ViewFortuneListActivity : BaseActivity() {
         mFortuneAdapter = FortuneAdapter(mContext, mMyFortuneList)
         binding.roadRecyclerView.adapter = mFortuneAdapter
 
-    }
-}
+        val bufferedReader: BufferedReader = File(filesDir,"save_fortune.txt").bufferedReader()
+        val inputString = bufferedReader.use { it.readText() }
+        println(inputString)
+
+//        https://www.python2.net/questions-1268056.htm 이 링크 참고하기
+
+    }}
