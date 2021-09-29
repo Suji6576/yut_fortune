@@ -54,7 +54,7 @@ class MainActivity : BaseActivity() {
         }
 
     }
-
+//    뽑은 랜덤숫자를 도,개,걸,모 로 변환
     fun randomValues() : String {
 
         val randomNumber = (1..4).random()
@@ -67,6 +67,7 @@ class MainActivity : BaseActivity() {
         return yutTxt
     }
 
+//    결과에 따라 다른 해석 나오게 - 64가지 경우의 수
     fun viewResult() {
 
         val inputFirst = binding.firstTxt.text
