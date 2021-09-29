@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewListItemLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="15dp"
@@ -14,6 +15,7 @@
         android:layout_marginBottom="10dp">
 
         <TextView
+            android:id="@+id/viewListDateTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/background"
@@ -22,6 +24,7 @@
             android:text="yy-MM-dd" />
 
         <TextView
+            android:id="@+id/viewListCategoryTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -32,6 +35,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/viewListWorryTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -40,6 +44,7 @@
         android:text="이 어플 잘 돌아가겠죠..?"/>
 
     <TextView
+        android:id="@+id/viewListFortuneTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
