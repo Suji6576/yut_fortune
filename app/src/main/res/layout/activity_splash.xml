@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/background"
         android:textSize="20sp"
+        android:fontFamily="@font/cafe24_onepretty_night"
         android:text="당신의 고민은 무엇인가요?"/>
 
 
