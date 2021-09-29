@@ -1,12 +1,16 @@
 package com.neppplus.yut_fortune
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import com.neppplus.yut_fortune.databinding.ActivityMainBinding
 import com.neppplus.yut_fortune.datas.FortuneData
@@ -39,6 +43,22 @@ class MainActivity : BaseActivity() {
             binding.resultTxt.text = " "
 
             viewResult()
+
+            binding.saveBtn.setOnClickListener {
+
+                val customView = LayoutInflater.from(mContext).inflate(R.layout.my_custom_alert_save, null)
+
+                val alert = AlertDialog.Builder(mContext)
+
+                alert.setTitle("저장할 내용입력")
+                alert.setView(customView)
+                alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialogInterface, i ->
+                    val worryEdt =customView.findViewById<EditText>(R.id.worryEdt)
+                    Toast.makeText(mContext, "${worryEdt.text}", Toast.LENGTH_SHORT).show()
+                })
+                alert.setNegativeButton("취소", null)
+                alert.show()
+            }
 
             return@setOnClickListener
         }

@@ -3,7 +3,7 @@
 
     <string-array name="categorySpinner"
         font_family = "@font/cafe24_onepretty_night">
-        <item>  </item>
+        <item>(선택해주세요)</item>
         <item>건강운</item>
         <item>금전운</item>
         <item>대인관계운</item>
