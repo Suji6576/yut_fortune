@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.yut_fortune.databinding.ActivityMainBinding
@@ -22,6 +24,8 @@ class MainActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         setupEvents()
         setValues()
+        setupSpinnerCategory()
+        setupSpinnerHandler()
     }
 
     override fun setupEvents() {
@@ -123,7 +127,7 @@ class MainActivity : BaseActivity() {
 
                 if (inputSecond == "도"){
                     when(inputThird){
-                        "도" -> binding.resultTxt.text = "자신이 뜻한 바가 나므이 방해로 이루어지지 못한다."
+                        "도" -> binding.resultTxt.text = "자신이 뜻한 바가 남의 방해로 이루어지지 못한다."
                         "개" -> binding.resultTxt.text = "주변은 어려운 상황이지만 본인에게는 좋은 일이 생긴다."
                         "걸" -> binding.resultTxt.text = "사소한 실수로 인해 큰 일을 망칠 수 있는 징조이다."
                         else -> binding.resultTxt.text = "갑자기 손실을 입는다."
@@ -267,9 +271,34 @@ class MainActivity : BaseActivity() {
 
     }
 
+    private fun setupSpinnerCategory() {
+        val category = resources.getStringArray(R.array.categorySpinner)
+        val adapter = ArrayAdapter(mContext, android.R.layout.simple_spinner_item, category)
+        binding.categorySpinner.adapter = adapter
+    }
+
+    private fun setupSpinnerHandler() {
+        binding.categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                binding.categoryTxt.text =
+                    " ${binding.categorySpinner.getItemAtPosition(position)}"
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+    }
+
     override fun setValues() {
 
         titleTxt.text = "운세보기"
 
     }
+
 }

@@ -33,17 +33,40 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cafe24_onepretty_night"
                 android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/background"
                 android:text="어떤 고민이 있나요?"/>
 
-            <EditText
-                android:id="@+id/worryEdt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:fontFamily="@font/cafe24_onepretty_night"
-                android:hint="간단하게 적어주세요"/>
 
 <!--            저장할때 말고는 딱히 필요없는 기능. => 저장버튼 누를 때 alert으로 입력받는게 좋지않을까?      -->
+<!--            Edt 대신 Spinner 사용해보기        -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Spinner
+                    android:id="@+id/categorySpinner"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="5dp"/>
+
+                <TextView
+                    android:id="@+id/categoryTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cafe24_onepretty_night"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:paddingLeft="10dp"
+                    android:text=""/>
+
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/randomBtn"

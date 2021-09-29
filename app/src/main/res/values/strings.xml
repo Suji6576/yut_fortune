@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">윷점</string>
+
+    <string-array name="categorySpinner"
+        font_family = "@font/cafe24_onepretty_night">
+        <item>  </item>
+        <item>건강운</item>
+        <item>금전운</item>
+        <item>대인관계운</item>
+        <item>사업운</item>
+        <item>시험운</item>
+        <item>연애운</item>
+        <item>직업운</item>
+        <item>학업운</item>
+    </string-array>
+
 </resources>
