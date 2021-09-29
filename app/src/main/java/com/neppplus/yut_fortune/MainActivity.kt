@@ -213,7 +213,7 @@ class MainActivity : BaseActivity() {
                 if (inputSecond == "도"){
                     when(inputThird){
                         "도" -> binding.resultTxt.text = "책임지는 사람이 없는 곤란한 일. 발을 들이지 않도록 조심해라."
-                        "개" -> binding.resultTxt.text = "옛날의 영화를회복한다. 고민되는 일이 있다면 과거의 내 행동을 참고해보자."
+                        "개" -> binding.resultTxt.text = "옛날의 영화를 회복한다. 고민되는 일이 있다면 과거의 내 행동을 참고해보자."
                         "걸" -> binding.resultTxt.text = "끝까지 긴장을 놓지 않는다면 일을 잘 마무리할 수 있다."
                         else -> binding.resultTxt.text = "크고 어려운 일이 있지만 일이 우연치않게 잘 풀린다."
                     }
@@ -254,6 +254,7 @@ class MainActivity : BaseActivity() {
         }
 
     }
+
 //    저장버튼 눌렀을 때 결과를 txt로 저장 -> 텍스트를 어떻게 가공해서 저장할것인가?
     fun saveResultToFile(content : String){
         val myFile = File(mContext.filesDir,"saveFortune.txt")
