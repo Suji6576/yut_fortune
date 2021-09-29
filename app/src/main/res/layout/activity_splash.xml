@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:theme="@style/customTextViewFontStyle"
     android:gravity="center"
     tools:context=".SplashActivity">
 
@@ -20,7 +21,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/background"
         android:textSize="20sp"
-        android:fontFamily="@font/cafe24_onepretty_night"
         android:textStyle="bold"
         android:text="당신의 고민은 무엇인가요?"/>
 
