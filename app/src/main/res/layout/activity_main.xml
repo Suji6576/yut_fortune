@@ -109,8 +109,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
+                    android:textSize="15sp"
                     android:fontFamily="@font/cafe24_onepretty_night"
-                    android:text="ㅁ 해석은 아래 박스를 눌러주세요 ㅁ"/>
+                    android:text="- 해석은 아래 박스를 눌러주세요 -"/>
 
 
             </LinearLayout>
