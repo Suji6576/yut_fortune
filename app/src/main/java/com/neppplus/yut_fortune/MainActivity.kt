@@ -147,7 +147,7 @@ class MainActivity : BaseActivity() {
                 else {
                     when(inputThird){
                         "도" -> binding.resultTxt.text = "하는 일이 잘 풀리지 않는다. 미련을 버리는 것이 좋다."
-                        "개" -> binding.resultTxt.text = "기적같은 일이 일어나 어려운 처치에서 벗어난다."
+                        "개" -> binding.resultTxt.text = "기적같은 일이 일어나 어려운 처지에서 벗어난다."
                         "걸" -> binding.resultTxt.text = "귀인의 도움을 받아 어려움을 헤쳐나갈 수 있다."
                         else -> binding.resultTxt.text = "가난한 살림에서 재물을 얻을 징조이다."
                     }
