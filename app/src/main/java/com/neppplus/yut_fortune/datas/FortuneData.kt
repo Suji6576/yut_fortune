@@ -16,7 +16,7 @@ class FortuneData (
 
         val now: Long = System.currentTimeMillis()
         val date = Date(now)
-        val dateFormat = SimpleDateFormat("yy-M-dd", Locale("ko", "KR"))
+        val dateFormat = SimpleDateFormat("yy-MM-dd", Locale("ko", "KR"))
         val saveDate = dateFormat.format(date)
 
         return "${saveDate}|[${saveCategory} ]|${saveWorry}|${saveFortune}"
