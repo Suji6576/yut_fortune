@@ -14,6 +14,7 @@ import com.neppplus.yut_fortune.datas.FortuneData
 
 class FortuneAdapter(
     val mContext: Context,
+    val resId: Int,
     val mList: List<FortuneData>) : RecyclerView.Adapter<FortuneAdapter.ViewFortuneHolder>() {
 
     class ViewFortuneHolder(view: View) :RecyclerView.ViewHolder(view){
