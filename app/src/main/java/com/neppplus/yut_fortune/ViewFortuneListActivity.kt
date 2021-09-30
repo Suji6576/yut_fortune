@@ -1,7 +1,7 @@
 package com.neppplus.yut_fortune
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,8 +10,10 @@ import com.neppplus.yut_fortune.databinding.ActivityViewFortuneListBinding
 import com.neppplus.yut_fortune.datas.FortuneData
 import java.io.BufferedReader
 import java.io.File
+import java.io.FileReader
+import java.text.SimpleDateFormat
 
-class ViewFortuneListActivity : BaseActivity() {
+class ViewFortuneListActivity() : BaseActivity() {
 
     lateinit var binding: ActivityViewFortuneListBinding
 
@@ -36,15 +38,15 @@ class ViewFortuneListActivity : BaseActivity() {
 
         menuBtn.visibility = View.GONE
 
-        binding.roadRecyclerView.layoutManager = LinearLayoutManager(mContext)
+        mMyFortuneList.add(FortuneData("테스트","이거 언제 잘될까요","잘되고있다"))
 
-        mFortuneAdapter = FortuneAdapter(mContext, mMyFortuneList)
-        binding.roadRecyclerView.adapter = mFortuneAdapter
 
-        val bufferedReader: BufferedReader = File(filesDir,"save_fortune.txt").bufferedReader()
-        val inputString = bufferedReader.use { it.readText() }
-        println(inputString)
+//        어댑터 초기화
+        mFortuneAdapter = FortuneAdapter(mContext, R.layout.view_fortune_list_item, mMyFortuneList)
 
-//        https://www.python2.net/questions-1268056.htm 이 링크 참고하기
+        binding.roadListView.adapter = mFortuneAdapter
 
-    }}
+
+    }
+
+}

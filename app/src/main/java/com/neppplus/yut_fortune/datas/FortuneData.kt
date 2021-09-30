@@ -9,16 +9,30 @@ class FortuneData (
     var saveFortune : String) {
 
 //    텍스트로 저장할 내용 yy-M-dd [카테고리] 질문 : 윷점결과
-//    21/09/29 | [직업운] | 취업이 잘 될까? | 환경을 바꾸면 운이 들어올 수 있다  이런식으로?
+//     [직업운] | 취업이 잘 될까? | 환경을 바꾸면 운이 들어올 수 있다 |21-09-29  이런식으로?
 
 //    날짜 가공 함수.
+
+    val saveDate = Calendar.getInstance()
+
+//    날짜변환 양식은, 외부노출X, 나만혼자 사용.(private)
+    private val fileDateFormat = SimpleDateFormat("yy-MM-dd")
+
+//    val now: Long = System.currentTimeMillis()
+//    val date = Date(now)
+//    val dateFormat = SimpleDateFormat("yy-MM-dd", Locale("ko", "KR"))
+//    val saveDate = dateFormat.format(date)
+
     fun getFileFormatData() : String{
 
-        val now: Long = System.currentTimeMillis()
-        val date = Date(now)
-        val dateFormat = SimpleDateFormat("yy-MM-dd", Locale("ko", "KR"))
-        val saveDate = dateFormat.format(date)
+        return "${saveCategory}|${saveWorry}|${saveFortune}|${fileDateFormat.format(this.saveDate.time)}"
+    }
 
-        return "${saveDate}|[${saveCategory} ]|${saveWorry}|${saveFortune}"
+    val saveDateFormatter = SimpleDateFormat("yy-MM-dd")
+
+    fun getFormattedsaveDate() : String {
+
+        return  saveDateFormatter.format((this.saveDate.time))
+
     }
 }
