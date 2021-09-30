@@ -18,17 +18,13 @@ class FortuneData (
 //    날짜변환 양식은, 외부노출X, 나만혼자 사용.(private)
     private val fileDateFormat = SimpleDateFormat("yy-MM-dd")
 
-//    val now: Long = System.currentTimeMillis()
-//    val date = Date(now)
-//    val dateFormat = SimpleDateFormat("yy-MM-dd", Locale("ko", "KR"))
-//    val saveDate = dateFormat.format(date)
 
-    fun getFileFormatData() : String{
+    fun getFileFormatData() : String {
 
-        return "${saveCategory}|${saveWorry}|${saveFortune}|${fileDateFormat.format(this.saveDate.time)}"
+        return "${saveCategory }|${saveWorry}|${saveFortune}|${fileDateFormat.format(this.saveDate.time)}"
     }
 
-    val saveDateFormatter = SimpleDateFormat("yy-MM-dd")
+    val saveDateFormatter = SimpleDateFormat("yy/MM/dd")
 
     fun getFormattedsaveDate() : String {
 
