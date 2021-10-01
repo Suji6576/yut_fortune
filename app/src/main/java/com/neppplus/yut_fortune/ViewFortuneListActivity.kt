@@ -43,6 +43,7 @@ class ViewFortuneListActivity() : BaseActivity() {
 
 //        어댑터 초기화
         mFortuneAdapter = FortuneAdapter(mContext, R.layout.view_fortune_list_item, mFortuneList)
+        mFortuneAdapter.dir = filesDir
 
 //        리스트뷰의 어댑터로 연결
         binding.roadListView.adapter = mFortuneAdapter

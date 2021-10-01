@@ -20,6 +20,7 @@ class FortuneAdapter(
     val mList: List<FortuneData>) : ArrayAdapter<FortuneData>(mContext,resId,mList) {
 
     private val mInflater = LayoutInflater.from(mContext)
+    lateinit var dir : File
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
@@ -52,22 +53,22 @@ class FortuneAdapter(
             alert.setMessage("현재 삭제 불가. 다음 업데이트에 가능합니다.")
             alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialogInterface, i ->
 
-//                val inputFile = File("save_fortune.txt")
-//
-//                val reader = BufferedReader(FileReader(inputFile))
-//                val writer = BufferedWriter(FileWriter(inputFile))
-//
-//                val lineToRemove = data.getFileFormatData()
-//                var currentLine: String
-//
-//                while (reader.readLine().also { currentLine = it } != null) {
-//                    // trim newline when comparing with lineToRemove
-//                    val trimmedLine = currentLine.trim { it <= ' ' }
-//                    if (trimmedLine == lineToRemove) continue
-//                    writer.write(currentLine + System.getProperty("line.separator"))
-//                }
-//                writer.close()
-//                reader.close()
+                val inputFile = File(dir,"save_fortune.txt")
+
+                val reader = BufferedReader(FileReader(inputFile))
+                val writer = BufferedWriter(FileWriter(inputFile))
+
+                val lineToRemove = data.getFileFormatData()
+                var currentLine: String
+
+                while (reader.readLine().also { currentLine = it } != null) {
+                    // trim newline when comparing with lineToRemove
+                    val trimmedLine = currentLine.trim { it <= ' ' }
+                    if (trimmedLine == lineToRemove) continue
+                    writer.write(currentLine + System.getProperty("line.separator"))
+                }
+                writer.close()
+                reader.close()
 
                 Log.d("데이터삭제",data.getFileFormatData())
                 (context as ViewFortuneListActivity).readFortuneFromFile()
