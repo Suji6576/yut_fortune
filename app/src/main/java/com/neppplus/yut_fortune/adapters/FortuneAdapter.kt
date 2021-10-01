@@ -49,24 +49,25 @@ class FortuneAdapter(
 
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("삭제하시겠습니까?")
+            alert.setMessage("현재 삭제 불가. 다음 업데이트에 가능합니다.")
             alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialogInterface, i ->
 
-                val inputFile = File("save_fortune.txt")
-
-                val reader = BufferedReader(FileReader(inputFile))
-                val writer = BufferedWriter(FileWriter(inputFile))
-
-                val lineToRemove = data.getFileFormatData()
-                var currentLine: String
-
-                while (reader.readLine().also { currentLine = it } != null) {
-                    // trim newline when comparing with lineToRemove
-                    val trimmedLine = currentLine.trim { it <= ' ' }
-                    if (trimmedLine == lineToRemove) continue
-                    writer.write(currentLine + System.getProperty("line.separator"))
-                }
-                writer.close()
-                reader.close()
+//                val inputFile = File("save_fortune.txt")
+//
+//                val reader = BufferedReader(FileReader(inputFile))
+//                val writer = BufferedWriter(FileWriter(inputFile))
+//
+//                val lineToRemove = data.getFileFormatData()
+//                var currentLine: String
+//
+//                while (reader.readLine().also { currentLine = it } != null) {
+//                    // trim newline when comparing with lineToRemove
+//                    val trimmedLine = currentLine.trim { it <= ' ' }
+//                    if (trimmedLine == lineToRemove) continue
+//                    writer.write(currentLine + System.getProperty("line.separator"))
+//                }
+//                writer.close()
+//                reader.close()
 
                 Log.d("데이터삭제",data.getFileFormatData())
                 (context as ViewFortuneListActivity).readFortuneFromFile()
@@ -76,7 +77,6 @@ class FortuneAdapter(
             alert.setNegativeButton("취소", null)
             alert.show()
 
-//            Toast.makeText(mContext, "리스트 클릭", Toast.LENGTH_SHORT).show()
             return@setOnLongClickListener true
         }
         return row
