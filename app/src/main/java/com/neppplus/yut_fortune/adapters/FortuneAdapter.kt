@@ -12,10 +12,7 @@ import androidx.core.content.ContextCompat
 import com.neppplus.yut_fortune.R
 import com.neppplus.yut_fortune.ViewFortuneListActivity
 import com.neppplus.yut_fortune.datas.FortuneData
-import java.io.BufferedReader
-import java.io.BufferedWriter
-import java.io.File
-import java.io.FileWriter
+import java.io.*
 
 class FortuneAdapter(
     val mContext: Context,
@@ -54,10 +51,28 @@ class FortuneAdapter(
             alert.setTitle("삭제하시겠습니까?")
             alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialogInterface, i ->
 
+                val inputFile = File("save_fortune.txt")
+
+                val reader = BufferedReader(FileReader(inputFile))
+                val writer = BufferedWriter(FileWriter(inputFile))
+
+                val lineToRemove = data.getFileFormatData()
+                var currentLine: String
+
+                while (reader.readLine().also { currentLine = it } != null) {
+                    // trim newline when comparing with lineToRemove
+                    val trimmedLine = currentLine.trim { it <= ' ' }
+                    if (trimmedLine == lineToRemove) continue
+                    writer.write(currentLine + System.getProperty("line.separator"))
+                }
+                writer.close()
+                reader.close()
+
                 Log.d("데이터삭제",data.getFileFormatData())
                 (context as ViewFortuneListActivity).readFortuneFromFile()
                 return@OnClickListener
             })
+
             alert.setNegativeButton("취소", null)
             alert.show()
 
