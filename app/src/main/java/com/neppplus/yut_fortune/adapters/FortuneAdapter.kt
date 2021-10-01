@@ -1,12 +1,21 @@
 package com.neppplus.yut_fortune.adapters
 
 import android.content.Context
+import android.content.DialogInterface
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.neppplus.yut_fortune.R
+import com.neppplus.yut_fortune.ViewFortuneListActivity
 import com.neppplus.yut_fortune.datas.FortuneData
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileWriter
 
 class FortuneAdapter(
     val mContext: Context,
@@ -38,9 +47,22 @@ class FortuneAdapter(
         viewListWorryTxt.text = data.saveWorry
         viewListFortuneTxt.text = data.saveFortune
 
-        viewListItemLayout.setOnClickListener {
+        viewListItemLayout.setOnLongClickListener {
+            Log.d("길게 누름", data.getFileFormatData())
 
-            Toast.makeText(mContext, "리스트 클릭", Toast.LENGTH_SHORT).show()
+            val alert = AlertDialog.Builder(mContext)
+            alert.setTitle("삭제하시겠습니까?")
+            alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialogInterface, i ->
+
+                Log.d("데이터삭제",data.getFileFormatData())
+                (context as ViewFortuneListActivity).readFortuneFromFile()
+                return@OnClickListener
+            })
+            alert.setNegativeButton("취소", null)
+            alert.show()
+
+//            Toast.makeText(mContext, "리스트 클릭", Toast.LENGTH_SHORT).show()
+            return@setOnLongClickListener true
         }
         return row
     }
