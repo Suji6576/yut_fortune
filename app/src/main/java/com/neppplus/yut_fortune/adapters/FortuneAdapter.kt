@@ -61,12 +61,12 @@ class FortuneAdapter(
                 val lineToRemove = data.getFileFormatData()
                 var currentLine: String
 
-                while (reader.readLine().also { currentLine = it } != null) {
-                    // trim newline when comparing with lineToRemove
-                    val trimmedLine = currentLine.trim { it <= ' ' }
-                    if (trimmedLine == lineToRemove) continue
-                    writer.write(currentLine + System.getProperty("line.separator"))
-                }
+//                while (reader.readLine().also { currentLine = it } != null) {
+//                    // trim newline when comparing with lineToRemove
+//                    val trimmedLine = currentLine.trim { it <= ' ' }
+//                    if (trimmedLine == lineToRemove) continue
+//                    writer.write(currentLine + System.getProperty("line.separator"))
+//                }
                 writer.close()
                 reader.close()
 

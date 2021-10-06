@@ -64,7 +64,7 @@ class MainActivity : BaseActivity() {
                     val saveStr =inputFortuneData.getFileFormatData()
 
                     saveResultToFile(saveStr)
-                    Log.d("파일에 저장할 문장", saveStr)
+//                    Log.d("파일에 저장할 문장", saveStr)
 
                     Toast.makeText(mContext, "저장되었습니다.", Toast.LENGTH_SHORT).show()
 
@@ -81,6 +81,7 @@ class MainActivity : BaseActivity() {
 
             binding.viewSaveFortuneBtn.setOnClickListener {
                 val myIntent = Intent(mContext, ViewFortuneListActivity::class.java)
+                Log.d("화면이동","저장목록으로 이동합니다.")
                 startActivity(myIntent)
             }
         }
